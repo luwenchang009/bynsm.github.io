@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTU数据监控面板</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入Supabase客户端库 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RTU设备实时监控</h1>
+            <p>最后更新: <span id="lastUpdateTime">--</span></p>
+        </header>
+
+        <main>
+            <div id="dataDisplay" class="data-grid">
+                <!-- 数据卡片将在这里动态生成 -->
+            </div>
+        </main>
+
+        <footer>
+            <p>监控系统 &copy; 2025</p>
+        </footer>
+    </div>
+
+    <!-- 引入我们的JavaScript代码 -->
+    <script src="app.js"></script>
+</body>
+</html>
