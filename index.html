@@ -3,30 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTU数据监控面板</title>
+    <title>RTU设备监控与指令下发</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入Supabase客户端库 -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>RTU设备实时监控</h1>
+            <h1>RTU设备监控与指令下发平台</h1>
             <p>最后更新: <span id="lastUpdateTime">--</span></p>
         </header>
 
         <main>
-            <div id="dataDisplay" class="data-grid">
-                <!-- 数据卡片将在这里动态生成 -->
+            <!-- 指令下发表单 -->
+            <div class="command-form">
+                <h2>下发新指令</h2>
+                <form id="commandForm">
+                    <div class="form-group">
+                        <label for="deviceId">设备ID:</label>
+                        <input type="text" id="deviceId" value="设备_01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="command">指令内容:</label>
+                        <input type="text" id="command" placeholder="例如: SET_TEMP:25" required>
+                    </div>
+                    <button type="submit">下发指令</button>
+                </form>
+                <div id="formMessage"></div>
+            </div>
+
+            <!-- 指令历史显示 -->
+            <div class="command-history">
+                <h2>指令下发历史</h2>
+                <button onclick="fetchData()">刷新历史</button>
+                <div id="dataDisplay" class="data-grid">
+                    <!-- 指令卡片将在这里动态生成 -->
+                </div>
             </div>
         </main>
 
         <footer>
-            <p>监控系统 &copy; 2025</p>
+            <p>指令控制系统 &copy; 2025</p>
         </footer>
     </div>
 
-    <!-- 引入我们的JavaScript代码 -->
     <script src="app.js"></script>
 </body>
 </html>
